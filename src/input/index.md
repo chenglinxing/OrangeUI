@@ -1,8 +1,8 @@
 ---
 title: Input 输入框
 nav:
-    title: Input 输入框
-    path: /components
+  title: Input 输入框
+  path: /components
 ---
 
 # Input 输入框
@@ -11,24 +11,19 @@ nav:
 
 # 何时使用
 
-
-
-
 ## 基础使用
 
 <code src="./demos/basic.tsx">
 
+## 三种大小
 
-<!-- 
-## 含有辅助性文字介绍的警告提示
+<code src="./demos/size.tsx">
 
-<code src="./demos/description.tsx">
+## 前置后置标签
 
-## 可添加图标让信息类型更加醒目
+<code src="./demos/prepandOrAppend.tsx">
 
-<code src="./demos/icon.tsx">
-
-## 可关闭的警告提示
+<!-- ## 可关闭的警告提示
 
 <code src="./demos/close.tsx"> -->
 
@@ -42,15 +37,14 @@ nav:
 | --- | --- | --- | --- | --- |
 | closable | 默认不显示关闭按钮 | boolean | - |  |
 | closeText | 警告提示的辅助性文字介绍 | ReactNode | - |  |
-| description | 内容	 | ReactNode | - |  |
+| description | 内容 | ReactNode | - |  |
 | message | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false |  |
-| type | 指定警告提示的样式，有四种选择 | `success` \| `info` \| `warning` \| `error`  | `info`  |  |
+| type | 指定警告提示的样式，有四种选择 | `success` \| `info` \| `warning` \| `error` | `info` |  |
 | onClose | 关闭时触发的回调函数 | (event) => void | - |  |
 
-
 <style>
-.alert {
-  margin-bottom: 16px;
+.orange-input-group-wrapper {
+  margin: 16px 0;
 }
 </style>

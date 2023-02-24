@@ -5,7 +5,7 @@ const BasicInput = () => {
   return (
     <>
       <div>
-        <Input password/>
+        <Input />
       </div>
     </>
   );
