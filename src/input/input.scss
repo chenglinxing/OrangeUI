@@ -99,11 +99,12 @@ $box-shadow: #d1e9ff;
     justify-content: center;
   }
   .orange-input-append {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .orange-input-prepand {
+   
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+  }
+  .orange-input-prepand {
+     border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }

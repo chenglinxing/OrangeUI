@@ -6,6 +6,8 @@ const PrepandAndAppend = () => {
   return (
     <>
       <Input append={'com'} prepand={'http://'} />
+      <Input prepand={'www'} />
+      <Input append={'com'} />
     </>
   );
 };
