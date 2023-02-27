@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactElement } from 'react';
+import React, { InputHTMLAttributes, ReactElement, useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import './input.scss';
 
@@ -11,20 +11,35 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   status?: 'error' | 'default' | 'warning'; //状态
   clearable?: boolean; //是否清空
   password?: boolean; //密码框
+  showCount?: boolean; //是否带数字展示
+  disabled?: boolean; //是否可编辑
 }
 
 const prefixCls = 'orange-input';
 
 const Input: React.FC<InputProps> = (props) => {
-  const { classname, size, prepand, append, status, clearable, password, ...restProps } = props;
+  const {
+    classname,
+    size,
+    prepand,
+    append,
+    status,
+    clearable,
+    password,
+    showCount,
+    disabled,
+    ...restProps
+  } = props;
 
   const classes = classNames(prefixCls, classname, {
     [`orange-input-${size}`]: size,
     [`orange-input-password`]: password,
     [`orange-input-prepand`]: prepand,
-    [`orange-input-append`]: append,
+    [`orange-input-append`]: append || showCount,
     [`orange-input-${status}`]: status,
     [`orange-input-${clearable}`]: clearable,
+    [`orange-input-show-number`]: showCount,
+    [`orange-input-disabled`]: disabled,
   });
 
   //判断是否存在前置后置
@@ -47,6 +62,44 @@ const Input: React.FC<InputProps> = (props) => {
     );
   }
 
+  //带数字展示
+  let showCountElement: any;
+  if (showCount) {
+    let spanClassName = classNames('orange-input-group-wrapper', {
+      [`orange-input-disabled`]: disabled,
+    });
+    let numberSpan = classNames('orange-input-wrapper-append', {
+      [`orange-input-show-count-suffix`]: showCount,
+    });
+    let [valueLen, setValueLen] = useState(0);
+
+    const handleOnInput = (e: any) => {
+      console.log(e.target.value);
+      //获取输入元素的长度
+      let len: number = e.target.value.length;
+      setValueLen(len);
+    };
+
+    showCountElement = (
+      <>
+        <span className={spanClassName}>
+          <input
+            className={classes}
+            maxLength={props.maxLength}
+            minLength={props.minLength}
+            onInput={handleOnInput}
+            type="text"
+            disabled={disabled}
+          />
+          <span className={numberSpan}>
+            <span>
+              {valueLen}/{props.maxLength}
+            </span>
+          </span>
+        </span>
+      </>
+    );
+  }
   return (
     <>
       <div className="orange-input-group-wrapper">
@@ -54,6 +107,8 @@ const Input: React.FC<InputProps> = (props) => {
       </div>
 
       {hasAddon && addonElement}
+
+      {showCount && showCountElement}
 
       {/* {password ?? (
         <span className="orange-input-password">
@@ -79,6 +134,7 @@ Input.defaultProps = {
   password: false,
   prepand: '',
   append: '',
+  showCount: false,
 };
 
 export default Input;

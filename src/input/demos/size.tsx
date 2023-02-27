@@ -5,9 +5,9 @@ const SizeInput = () => {
   return (
     <>
       <div>
-        <Input size="small" />
+        <Input size="sm" />
         <Input size="default" />
-        <Input size="large" />
+        <Input size="lg" />
       </div>
     </>
   );
