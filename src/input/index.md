@@ -23,9 +23,9 @@ nav:
 
 <code src="./demos/prepandOrAppend.tsx">
 
-<!-- ## 可关闭的警告提示
+## 展示数字
 
-<code src="./demos/close.tsx"> -->
+<code src="./demos/showNumber.tsx">
 
 ## API
 
@@ -46,5 +46,9 @@ nav:
 <style>
 .orange-input-group-wrapper {
   margin: 16px 0;
+}
+
+.__dumi-default-previewer{
+  width:50%
 }
 </style>
