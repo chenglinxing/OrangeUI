@@ -27,6 +27,10 @@ nav:
 
 <code src="./demos/showNumber.tsx">
 
+## 可删除
+
+<code src="./demos/clearable.tsx">
+
 ## API
 
 通过设置 Button 的属性来产生不同的按钮样式
@@ -35,13 +39,12 @@ nav:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| closable | 默认不显示关闭按钮 | boolean | - |  |
-| closeText | 警告提示的辅助性文字介绍 | ReactNode | - |  |
-| description | 内容 | ReactNode | - |  |
-| message | 警告提示内容 | ReactNode | - |  |
-| showIcon | 是否显示辅助图标 | boolean | false |  |
-| type | 指定警告提示的样式，有四种选择 | `success` \| `info` \| `warning` \| `error` | `info` |  |
-| onClose | 关闭时触发的回调函数 | (event) => void | - |  |
+| size | 默认 default | string `lg` \| `default` \| `sm` | default |  |
+| showCount | 展示输入的长度，可以控制最大或最小输入长度 | boolean | false |  |
+| append | 后置标签 | string \| `ReactNode` | - |  |
+| prepend | 前置标签 | string \| `ReactNode` | - |  |
+| disabled | 禁用 | boolean | false |  |
+| clearable | 展示清空按钮 | boolean | false |  |
 
 <style>
 .orange-input-group-wrapper {

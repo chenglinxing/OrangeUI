@@ -6,6 +6,7 @@ const ShowNumber = () => {
     <>
       <Input showCount maxLength={20}></Input>
       <Input showCount maxLength={50} disabled></Input>
+      <Input password></Input>
     </>
   );
 };

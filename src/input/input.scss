@@ -86,23 +86,24 @@ $box-shadow: #d1e9ff;
 
   .orange-input-wrapper-append {
     @include orangeIinputGroup();
+    display: flex;
+    align-items: center;
     border-left: none;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
-    display: flex;
-    align-items: center;
   }
 
   .orange-input-group-addon {
-    padding: 0 5px;
-    color: rgba(0, 0, 0, .88);
-    background-color: #fafafa;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 5px;
+    color: rgba(0, 0, 0, 0.88);
     font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial,
+      noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
     list-style: none;
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+    background-color: #fafafa;
   }
 
   .orange-input-prepand {
@@ -115,7 +116,7 @@ $box-shadow: #d1e9ff;
     border-bottom-right-radius: 0;
   }
   .orange-input-prepand {
-     border-top-left-radius: 0;
+    border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 }
@@ -130,15 +131,45 @@ $box-shadow: #d1e9ff;
   padding: 0 10px;
   color: #a0a0a0;
   font-size: 14px;
+  border-left: 1px solid #d9d9d9 !important;
   &::before {
-    content: "";
-
+    content: '';
   }
 }
 
-
 //不可编辑
-.orange-input-disabled{
+.orange-input-disabled {
   background: rgba(0, 0, 0, 0.04);
   cursor: no-drop;
+}
+
+//clearable
+.orange-input-clearable {
+  // border-right: none;
+  // border-top-right-radius: 0;
+  // border-bottom-right-radius: 0;
+
+  &:hover {
+    border-color: #d9d9d9;
+    border-right-color: transparent;
+    border-radius: 6px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:focus {
+    border-right-width: 1px;
+    border-radius: 6px;
+     border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0 0 2px $box-shadow;
+  }
+}
+
+.orange-input-span-clearable {
+  width: 24px;
+  color: #bfbfbf;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans,
+    sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+  cursor: pointer;
 }
