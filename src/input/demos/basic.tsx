@@ -1,5 +1,5 @@
 import React from 'react';
-import Input, { InputProps } from '../input';
+import Input from '../input';
 
 const BasicInput = () => {
   return (

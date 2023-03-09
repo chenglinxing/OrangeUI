@@ -57,6 +57,11 @@ $box-shadow: #d1e9ff;
     border-radius: 6px;
     box-shadow: 0 0 0 2px $box-shadow;
   }
+
+  &:disabled {
+    border-color: #d9d9d9;
+    border-radius: 6px;
+  }
 }
 
 //size
@@ -150,26 +155,46 @@ $box-shadow: #d1e9ff;
   // border-bottom-right-radius: 0;
 
   &:hover {
-    border-color: #d9d9d9;
-    border-right-color: transparent;
-    border-radius: 6px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-color: #d9d9d9;
+    // border-right-color: transparent;
+    // border-radius: 6px;
+    // border-top-right-radius: 0;
+    // border-bottom-right-radius: 0;
   }
 
-  &:focus {
-    border-right-width: 1px;
-    border-radius: 6px;
-     border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    box-shadow: 0 0 0 2px $box-shadow;
-  }
+  // &:focus {
+  //   border-right: none;
+  //   border-radius: 6px;
+  //   // border-right-width: 1px;
+  //   border-top-right-radius: 0;
+  //   border-top-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  //   box-shadow: 0 0 0 2px $box-shadow;
+  // }
 }
 
-.orange-input-span-clearable {
-  width: 24px;
+.orange-input-group-wrapper {
+  position: relative;
+}
+
+.orange-input-span-clearable,
+.orange-input-span-password {
+  position: absolute;
+  right: 16px;
+  width: 12px;
+  height: 12px;
   color: #bfbfbf;
   font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans,
     sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
   cursor: pointer;
+
+  &:hover {
+    color: #8c8c8c;
+  }
+}
+
+// 密码框
+
+.orange-input-span-password {
 }

@@ -27,6 +27,10 @@ nav:
 
 <code src="./demos/showNumber.tsx">
 
+## 密码框
+
+<code src="./demos/password.tsx">
+
 ## 可删除
 
 <code src="./demos/clearable.tsx">
