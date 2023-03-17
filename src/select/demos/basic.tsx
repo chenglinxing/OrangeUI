@@ -5,7 +5,13 @@ const BasicSelect = () => {
   return (
     <>
       <div>
-        <Select />
+        <Select
+          options={[
+            { key: 1, label: '周黑鸭' },
+            { key: 2, label: '绝味' },
+          ]}
+        />
+        <Select disabled />
         <Select filterable />
       </div>
     </>

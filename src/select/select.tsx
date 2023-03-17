@@ -19,6 +19,8 @@ export interface SelectProps {
   noMatchText?: string; //搜索条件无匹配时显示的文字
   value?: any; //绑定的值
   options?: IOptions[];
+  defaultValue: string | string[] | number | number[]; //默认值
+  onChange?: Function; //onChange方法
 }
 
 const Select: React.FC<SelectProps> = (props) => {
@@ -32,6 +34,8 @@ const Select: React.FC<SelectProps> = (props) => {
     noMatchText,
     value,
     options,
+    defaultValue,
+    onChange,
     ...resProps
   } = props;
 
@@ -60,15 +64,20 @@ const Select: React.FC<SelectProps> = (props) => {
 
   //classname
   const selectSearchClassName = 'orange-select-selection-search';
+  const inputClassName = classNames('orange-select-input', {
+    [`orange-select-disabled`]: disabled,
+    [`orange-select-filterable`]: filterable,
+  });
 
   //hook
   const selectRef = useRef(); //获取select
   let [top, setTop] = useState(0); //获取Y轴位置
   let [left, setLeft] = useState(0); //获取X轴位置
   let [eleemntWidth, setEleemntWidth] = useState(0);
+  let [isShowQuery, setIsShowQuery] = useState<boolean>(false);
+  let [selected, setSelected] = useState<boolean>(false); //选中的值
+  let [inputVal, setInputVal] = useState<any>(''); //input 的 value
 
-  //methods
-  //点击下拉框的方法
   useEffect(() => {
     let [top, left] = getElementPosition(selectRef);
     console.log(top, left, selectRef.current.offsetWidth);
@@ -76,23 +85,66 @@ const Select: React.FC<SelectProps> = (props) => {
     setLeft(left);
     setEleemntWidth(selectRef.current.offsetWidth);
   });
-  const handleClickSelect = (e: any) => {};
+
+  //methods
+  //点击下拉框的方法
+  const handleClickSelect = (e: any) => {
+    setIsShowQuery(!isShowQuery);
+  };
+
+  //点击label
+  const handleClickLabel = (e: any, i: any) => {
+    console.log(e, i);
+    //选择后高亮展示
+    //赋值
+    setInputVal(i.label);
+    //赋值后隐藏
+    setIsShowQuery(false);
+    // onChange(i, e);
+  };
+  const handleMouseMove = (e) => {
+    console.log('blur', e);
+    setIsShowQuery(false);
+  };
 
   return (
     <>
-      <div ref={selectRef} className={classes} onClick={handleClickSelect}>
+      <div ref={selectRef} className={classes} onClick={handleClickSelect} onBlur={handleMouseMove}>
         <span className={selectSearchClassName}>
-          <input type="text" readOnly={!filterable} />
+          <input
+            className={inputClassName}
+            type="text"
+            disabled={disabled}
+            readOnly={!filterable}
+            defaultValue={inputVal}
+          />
         </span>
         <span className="orange-select-arrow">{selectSvg}</span>
       </div>
 
-      <div
-        className="orange-select-dropdown"
-        style={{ left: left, top: top + 40, width: eleemntWidth }}
-      >
-        123
-      </div>
+      {isShowQuery && !disabled && (
+        <div
+          className="orange-select-dropdown"
+          style={{ left: left, top: top + 36, width: eleemntWidth }}
+        >
+          <div className="query-list">
+            {options?.map((i) => {
+              return (
+                <div className="query-item" key={i.key}>
+                  <div
+                    className="query-item-label"
+                    onClick={(e) => {
+                      handleClickLabel(e, i);
+                    }}
+                  >
+                    {i.label}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </>
   );
 };
@@ -101,6 +153,7 @@ Select.defaultProps = {
   size: 'default',
   clearable: false,
   filterable: false,
+  defaultValue: '',
 };
 
 export default Select;
