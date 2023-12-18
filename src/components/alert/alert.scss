@@ -1,0 +1,83 @@
+//config
+@import "../../styles/variables";
+//layout
+@import "../../styles/reboot";
+
+$info-bgc:#e7f7ff;
+$success-bgc:#f6ffed;
+$warning-bgc:#fffbe5;
+$error-bgc:#fff2f0;
+
+$warning-border-color:#ffe58f;
+$success-border-color:#b7eb92;
+$info-border-color:#95d5fe;
+
+$alert-message-color:#000000d9;
+$alert-description-color:#9c3838;
+
+
+$error-border:#ffccc7;
+@mixin alert-style($border,$backgroundColor){
+    border: 1px solid $border;
+    background-color: $backgroundColor;
+}
+
+.alert{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 8px 15px;
+    min-width: 0;
+    display: flex;
+    border-radius: 2px;
+    .alert-icon{
+        margin-right: 8px;
+        color: red;
+    }
+
+    .alert-content{
+        flex: 1;
+        word-break: break-all; //自动换行
+        .alert-message,.alert-description{
+            margin-bottom: 8px;
+        }
+
+        .alert-meesage{
+            font-size: 16px;
+        }
+
+        .alert-description{
+            font-size: 14px;
+        }
+    }
+
+    .alert-close-icon{
+        display: flex;
+        color: $alert-description-color;
+        margin-right: 8px;
+        padding: 0;
+        font-size: 14px;
+        line-height: 12px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+.alert-info{
+    @include alert-style($info-border-color,$info-bgc)
+}
+
+.alert-success{
+    @include alert-style($success-border-color,$success-bgc)
+}
+
+.alert-warning{
+    @include alert-style($warning-border-color,$warning-bgc)
+}
+
+.alert-error{
+    @include alert-style($error-border,$error-bgc)
+}
+
+

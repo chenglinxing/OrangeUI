@@ -1,0 +1,200 @@
+//config
+@import '../../styles/variables';
+//layout
+@import '../../styles/reboot';
+
+@mixin InputSize($padding-top-bootom) {
+  padding-top: $padding-top-bootom;
+  padding-bottom: $padding-top-bootom;
+}
+
+$border: #40a9ff;
+$box-shadow: #d1e9ff;
+
+// .orange-space-item {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+
+//   &:hover {
+//     border: 1px solid $border;
+//   }
+
+//   &:focus {
+//     box-shadow: $box-shadow;
+//   }
+// }
+
+.orange-input {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 4px 11px;
+  color: #000000d9;
+  font-size: 14px;
+
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s;
+  font-feature-settings: 'tnum';
+
+  &:hover {
+    border-color: #40a9ff;
+    border-radius: 6px;
+  }
+
+  &:focus {
+    border-right-width: 1px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px $box-shadow;
+  }
+
+  &:disabled {
+    border-color: #d9d9d9;
+    border-radius: 6px;
+  }
+}
+
+//size
+.orange-input-sm {
+  line-height: 16px;
+}
+
+.orange-input-lg {
+  line-height: 34px;
+}
+
+//suffix  affix
+@mixin orangeIinputGroup() {
+  border: 1px solid #d9d9d9;
+}
+
+.orange-input-group-wrapper {
+  display: flex;
+  box-sizing: border-box;
+
+  .orange-input-wrapper-prepand {
+    @include orangeIinputGroup();
+    border-right: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .orange-input-wrapper-append {
+    @include orangeIinputGroup();
+    display: flex;
+    align-items: center;
+    border-left: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .orange-input-group-addon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial,
+      noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+    list-style: none;
+    background-color: #fafafa;
+  }
+
+  .orange-input-prepand {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .orange-input-append {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .orange-input-prepand {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+//显示Nunber
+.orange-input-show-number {
+  border-right: none;
+}
+
+.orange-input-show-count-suffix {
+  width: 50px;
+  padding: 0 10px;
+  color: #a0a0a0;
+  font-size: 14px;
+  border-left: 1px solid #d9d9d9 !important;
+  &::before {
+    content: '';
+  }
+}
+
+//不可编辑
+.orange-input-disabled {
+  background: rgba(0, 0, 0, 0.04);
+  cursor: no-drop;
+}
+
+//clearable
+.orange-input-clearable {
+  // border-right: none;
+  // border-top-right-radius: 0;
+  // border-bottom-right-radius: 0;
+
+  &:hover {
+    // border-color: #d9d9d9;
+    // border-right-color: transparent;
+    // border-radius: 6px;
+    // border-top-right-radius: 0;
+    // border-bottom-right-radius: 0;
+  }
+
+  // &:focus {
+  //   border-right: none;
+  //   border-radius: 6px;
+  //   // border-right-width: 1px;
+  //   border-top-right-radius: 0;
+  //   border-top-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  //   box-shadow: 0 0 0 2px $box-shadow;
+  // }
+}
+
+.orange-input-group-wrapper {
+  position: relative;
+}
+
+.orange-input-span-clearable,
+.orange-input-span-password {
+  position: absolute;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  color: #bfbfbf;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans,
+    sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+  cursor: pointer;
+
+  &:hover {
+    color: #8c8c8c;
+  }
+}
+
+// 密码框
+
+.orange-input-span-password {
+}
