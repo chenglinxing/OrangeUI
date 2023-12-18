@@ -13,4 +13,8 @@ insert_final_newline = true
 trim_trailing_whitespace = false
 
 [Makefile]
+<<<<<<< HEAD
 indent_style = tab
+=======
+indent_style = tab
+>>>>>>> 0404831c3504f04bd29f24c04a7d66607f2d040d

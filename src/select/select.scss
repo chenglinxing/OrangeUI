@@ -1,0 +1,113 @@
+//config
+@import '../styles/variables';
+//layout
+@import '../styles/reboot';
+
+$border: #40a9ff;
+$box-shadow: #d1e9ff;
+
+.orange-select {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 240px;
+  height: 32px;
+  margin: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans,
+    sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #40a9ff;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px $box-shadow;
+    transition: all 0.5s;
+  }
+
+  .orange-select-selection-search {
+    input {
+      margin: 0;
+      padding: 0;
+      background: 0 0;
+      border: none;
+      outline: none;
+      appearance: none;
+    }
+  }
+
+  .orange-select-arrow {
+    color: #c7c7c7;
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+//disabled
+.orange-select-disabled {
+  background-color: #ededed;
+  cursor: not-allowed;
+  &:hover {
+    border-color: #d9d9d9;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .orange-select-disabled {
+    cursor: not-allowed;
+  }
+}
+
+//select列表
+.orange-select-dropdown {
+  position: absolute;
+  z-index: 999;
+  box-sizing: border-box;
+  min-height: 55px;
+  margin: 0;
+  padding: 4px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  transition: all 2s;
+}
+
+.query-list {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  // padding: 5px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.query-item {
+  display: flex;
+  padding: 5px 12px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.query-item-label {
+  flex: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
